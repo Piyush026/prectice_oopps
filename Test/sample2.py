@@ -19,11 +19,11 @@ class SearchText(unittest.TestCase):
         self.search_field.send_keys("Selenium WebDriver Interview questions")
         self.search_field.submit()
 
-        #get the list of elements which are displayed after the search
-        #currently on result page usingfind_elements_by_class_namemethod
+        # get the list of elements which are displayed after the search
+        # currently on result page usingfind_elements_by_class_namemethod
 
         lists = self.driver.find_elements_by_class_name("r")
-        no=len(lists)
+        no = len(lists)
         self.assertEqual(14, len(lists))
 
     def tearDown(self):

@@ -2,7 +2,6 @@ import unittest
 from selenium import webdriver
 import HtmlTestRunner
 import time
-import sys, os
 from Test.Pom.pages.LoginPage import LoginPage
 from Test.Pom.pages.homePage import HomePage
 
