@@ -7,13 +7,29 @@ page_url = uClient.read()
 uClient.close()
 page_soup = soup(page_url, 'html.parser')
 containers = page_soup.find_all("div", {"class": "zg_item zg_homeWidgetItem"})
-container = containers[0]
-# print(container)
-first = container.a.find('div', class_="p13n-sc-truncate p13n-sc-line-clamp-4")
-first = first.text
-print(first)
-# <a class="a-link-normal" href="/Indian-Polity-Civil-Services-Examinations/dp/B07Y3CJJCR?_encoding=UTF8&amp;psc=1"><div class="a-section a-spacing-mini"><img alt="Indian Polity - For Civil Services and Other State Examinations | 6th Edition" class="a-dynamic-image p13n-sc-dynamic-image" data-a-dynamic-image='{"https://images-na.ssl-images-amazon.com/images/I/61MrRA4qE0L._AC_UL480_SR372,480_.jpg":[480,372],"https://images-na.ssl-images-amazon.com/images/I/61MrRA4qE0L._AC_UL320_SR248,320_.jpg":[320,248],"https://images-na.ssl-images-amazon.com/images/I/61MrRA4qE0L._AC_UL160_SR124,160_.jpg":[160,124]}' height="160" src="https://images-na.ssl-images-amazon.com/images/I/61MrRA4qE0L._AC_UL160_SR124,160_.jpg" width="124"/></div>
-# <div aria-hidden="true" class="p13n-sc-truncate p13n-sc-line-clamp-4" data-rows="4">
-#             Indian Polity - For Civil Services and Other State Examinations | 6th Edition
-#         </div>
-# first_year = first_movie.h3.find('span', class_ = 'lister-item-year text-muted unbold')
+print(len(containers))
+
+new_dict = []
+stars = []
+writers = []
+names = []
+for container in containers:
+    if container.find('div', {'class': "a-icon-row a-spacing-none"}) is not None:
+        name = container.find('div', {"class": "p13n-sc-truncate p13n-sc-line-clamp-4"})
+        names.append(name.text.replace('\n', '').strip())
+        writer = container.find('span', {'class': 'a-size-small a-color-base'})
+        # print(writer)
+        writers.append(writer)
+        star = container.find('span', {"a-icon-alt"})
+        stars.append(star.text)
+    else:
+        name = container.find('div', {"class": "p13n-sc-truncate p13n-sc-line-clamp-5"})
+        names.append(name.text.replace('\n', '').strip())
+        writer = container.find('span', {'class': 'a-size-small a-color-base'})
+        writers.append(writer.text)
+
+print(names)
+print(writers)
+# print([i for i,x in enumerate(writers) if x == "Sadhguru"])
+# print(stars)
+

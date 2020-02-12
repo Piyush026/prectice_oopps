@@ -31,7 +31,9 @@ class GmailAutomation:
             "/html/body/div[1]/div[1]/div[2]/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/span/span").click()
         # open first mail
 
-        firstMail = self.driver.find_element_by_xpath("//*[@id=':22']")
+        firstMail = self.driver.find_element_by_xpath("//*[@id=':2a']/span")
+
+        # firstMail = self.driver.find_element_by_class_name("zA yO x7")
         firstMail.click()
 
         textData = self.driver.find_element_by_xpath(

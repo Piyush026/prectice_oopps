@@ -36,7 +36,7 @@ class MyTestCase(unittest.TestCase):
         login.enterPassword("admin123")
         login.clickLogin()
         message = driver.find_element_by_xpath("//*[@id='spanMessage']").text
-        self.assertEqual(message, " Invalid credentials")
+        self.assertEqual(message, "Invalid credentials")
 
     @classmethod
     def tearDown(self):

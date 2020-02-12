@@ -4,7 +4,7 @@ from selenium import webdriver
 
 class SearchText(unittest.TestCase):
     def setUp(self):
-        # create a new Firefox session
+        # create a new Chrome session
         self.driver = webdriver.Chrome("/home/lovkesh/PycharmProjects/prectice_oops/venv/lib/chromedriver")
         self.driver.implicitly_wait(30)
         self.driver.maximize_window()
@@ -16,7 +16,7 @@ class SearchText(unittest.TestCase):
         self.search_field = self.driver.find_element_by_name("q")
 
         # enter search keyword and submit
-        self.search_field.send_keys("Selenium WebDriver Interview questions")
+        self.search_field.send_keys("Selenium ")
         self.search_field.submit()
 
         # get the list of elements which are displayed after the search
